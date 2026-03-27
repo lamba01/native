@@ -1,98 +1,519 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+// import AntDesign from "@expo/vector-icons/AntDesign";
+// import { Image } from "expo-image";
+// import { useState } from "react";
+// import {
+//   FlatList,
+//   ImageBackground,
+//   StyleSheet,
+//   Text,
+//   TextInput,
+//   TouchableOpacity,
+//   View,
+// } from "react-native";
+// import CustomDropdown from "../../components/CustomDropdown";
+// const modalImage = require("../../assets/images/modal-bg.png");
+// const mochaimg = require("../../assets/images/mocha.png");
+// const categories = ["All Coffee", "Machiato", "Latte", "American"];
 
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+// export default function index() {
+//   const options = [
+//     { label: "Lagos, Nigeria", value: "Lagos, Nigeria" },
+//     { label: "Abuja, Nigeria", value: "Abuja, Nigeria" },
+//     { label: "Bilzen, Tanjungbalai", value: "Bilzen, Tanjungbalai" },
+//   ];
+//   const coffeeData = [
+//     {
+//       id: "1",
+//       name: "Caffe Mocha",
+//       description: "Deep Foam",
+//       price: "$4.53",
+//       image: require("../../assets/images/mocha.png"),
+//     },
+//     {
+//       id: "2",
+//       name: "Flat White",
+//       description: "Espresso",
+//       price: "$3.50",
+//       image: require("../../assets/images/flatwhite.png"),
+//     },
+//     {
+//       id: "3",
+//       name: "Caffe Latte",
+//       description: "Milk Foam",
+//       price: "$4.00",
+//       image: require("../../assets/images/latte.png"),
+//     },
+//     {
+//       id: "4",
+//       name: "Americano",
+//       description: "Black Coffee",
+//       price: "$3.00",
+//       image: require("../../assets/images/american.png"),
+//     },
+//   ];
 
-export default function HomeScreen() {
+//   const [location, setLocation] = useState("");
+//   const [selected, setSelected] = useState("All Coffee");
+//   return (
+//     <View style={styles.container}>
+//       <View style={styles.minicontainer}>
+//         <View>
+//           <Text
+//             style={{
+//               color: "#948b8b",
+//               fontSize: 15,
+//               fontWeight: 600,
+//               paddingVertical: 5,
+//             }}
+//           >
+//             Location
+//           </Text>
+//         </View>
+//         <CustomDropdown
+//           options={options}
+//           placeholder="Select a location"
+//           onSelect={(value) => setLocation(value)}
+//         />
+//         <View
+//           style={{
+//             flexDirection: "row",
+//             alignItems: "center",
+//             justifyContent: "space-between",
+//             marginTop: 20,
+//           }}
+//         >
+//           <TextInput
+//             placeholder="Search coffee"
+//             returnKeyType="search"
+//             style={styles.formstyle}
+//             placeholderTextColor="#948b8b"
+//           />
+//           <View style={styles.filter}>
+//             <AntDesign name="control" size={20} color="white" />
+//           </View>
+//         </View>
+//       </View>
+//       {/* <Text style={{ color: "white" }}>Hello world</Text>
+//       <Link href="/cover" asChild>
+//         <Button title="Open Cover" />
+//       </Link> */}
+//       <View style={styles.maincontainer}>
+//         {/* <View style={{ flex: 1, alignItems: "center", width: "100%" }}> */}
+//         <ImageBackground
+//           source={modalImage}
+//           resizeMode="cover"
+//           style={{
+//             // width: "100%",
+//             height: 150,
+//             borderRadius: 10,
+//             padding: 15,
+//             marginTop: -100,
+//           }}
+//         >
+//           <View style={styles.modal}>
+//             <Text style={styles.promotext}>Promo</Text>
+//             <Text style={styles.buytext}>Buy one get one FREE</Text>
+//           </View>
+//         </ImageBackground>
+//         <View style={styles.selectcoffee}>
+//           {categories.map((item) => (
+//             <TouchableOpacity
+//               key={item}
+//               style={[
+//                 styles.categoryItem,
+//                 selected === item && styles.activeItem,
+//               ]}
+//               onPress={() => setSelected(item)}
+//             >
+//               <Text
+//                 style={[
+//                   styles.categoryText,
+//                   selected === item && styles.activeText,
+//                 ]}
+//               >
+//                 {item}
+//               </Text>
+//             </TouchableOpacity>
+//           ))}
+//         </View>
+//       </View>
+//       <FlatList
+//         data={coffeeData}
+//         keyExtractor={(item) => item.id}
+//         // Vertical // makes it scroll sideways
+//         showsVerticalScrollIndicator={false}
+//         contentContainerStyle={{ gap: 15, paddingHorizontal: 20 }}
+//         renderItem={({ item }) => (
+//           <View
+//             style={{
+//               width: 200,
+//               backgroundColor: "#f0f0f0",
+//               borderRadius: 10,
+//               padding: 10,
+//             }}
+//           >
+//             <Image source={item.image} style={{ width: 150, height: 150 }} />
+//             <View style={{ padding: 5 }}>
+//               <Text style={{ color: "black", textTransform: "capitalize" }}>
+//                 {item.name}
+//               </Text>
+//               <Text style={{ color: "gray" }}>{item.description}</Text>
+//               <View>
+//                 <Text style={{ color: "black", fontWeight: 800 }}>
+//                   {item.price}
+//                 </Text>
+//               </View>
+//             </View>
+//           </View>
+//         )}
+//       />
+//     </View>
+//   );
+// }
+// const styles = StyleSheet.create({
+//   container: {
+//     height: "100%",
+//   },
+//   minicontainer: {
+//     paddingVertical: 70,
+//     paddingHorizontal: 20,
+//     backgroundColor: "#242424",
+//     height: "40%",
+//   },
+//   maincontainer: {
+//     backgroundColor: "white",
+//     height: "60%",
+//     width: "100%",
+//     padding: 20,
+//     alignItems: "center",
+//     justifyContent: "center",
+//     flex: 1,
+//     flexDirection: "column",
+//   },
+//   formstyle: {
+//     borderWidth: 1,
+//     borderColor: "#2A2A2A",
+//     backgroundColor: "#2A2A2A",
+//     borderRadius: 10,
+//     padding: 15,
+//     width: "85%",
+//     color: "white",
+//     fontSize: 18,
+//   },
+//   filter: {
+//     backgroundColor: "#9E633E",
+//     padding: 15,
+//     borderRadius: 10,
+//   },
+//   selectcoffee: {
+//     flex: 1,
+//     flexDirection: "row",
+//     alignItems: "center",
+//     justifyContent: "flex-start",
+//     gap: 20,
+//   },
+//   categoryItem: {
+//     paddingVertical: 8,
+//     paddingHorizontal: 16,
+//     borderRadius: 8,
+//     backgroundColor: "#f0f0f0",
+//   },
+//   activeItem: { backgroundColor: "#9E633E" },
+//   categoryText: {
+//     color: "#666",
+//     fontSize: 14,
+//   },
+//   activeText: {
+//     color: "#fff",
+//     fontWeight: "600",
+//   },
+//   modal: {
+//     width: "90%",
+//     flex: 1,
+//     alignItems: "flex-start",
+//     // height: 50,
+//   },
+//   promotext: {
+//     backgroundColor: "red",
+//     color: "white",
+//     padding: 5,
+//     borderRadius: 8,
+//     fontWeight: 700,
+//   },
+//   buytext: {
+//     color: "white",
+//     fontSize: 32,
+//     // backgroundColor: "rgba(0, 0, 0, 0.5)",
+//     fontWeight: 800,
+//   },
+// });
+
+import AntDesign from "@expo/vector-icons/AntDesign";
+import { Image } from "expo-image";
+import { useState } from "react";
+import {
+  FlatList,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import CustomDropdown from "../../components/CustomDropdown";
+
+const modalImage = require("../../assets/images/modal-bg.png");
+const categories = ["All Coffee", "Machiato", "Latte", "American"];
+
+const coffeeData = [
+  {
+    id: "1",
+    name: "Caffe Mocha",
+    description: "Deep Foam",
+    price: "$4.53",
+    image: require("../../assets/images/mocha.png"),
+  },
+  {
+    id: "2",
+    name: "Flat White",
+    description: "Espresso",
+    price: "$3.50",
+    image: require("../../assets/images/flatwhite.png"),
+  },
+  {
+    id: "3",
+    name: "Caffe Latte",
+    description: "Milk Foam",
+    price: "$4.00",
+    image: require("../../assets/images/latte.png"),
+  },
+  {
+    id: "4",
+    name: "Americano",
+    description: "Black Coffee",
+    price: "$3.00",
+    image: require("../../assets/images/american.png"),
+  },
+];
+
+export default function Index() {
+  const options = [
+    { label: "Lagos, Nigeria", value: "Lagos, Nigeria" },
+    { label: "Abuja, Nigeria", value: "Abuja, Nigeria" },
+    { label: "Bilzen, Tanjungbalai", value: "Bilzen, Tanjungbalai" },
+  ];
+
+  const [location, setLocation] = useState("");
+  const [selected, setSelected] = useState("All Coffee");
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
+    <FlatList
+      data={coffeeData}
+      keyExtractor={(item) => item.id}
+      showsVerticalScrollIndicator={false}
+      numColumns={2}
+      columnWrapperStyle={{ gap: 15, paddingHorizontal: 20 }}
+      contentContainerStyle={{ gap: 15, paddingBottom: 30 }}
+      // contentContainerStyle={styles.listContent}
+      ListHeaderComponent={
+        <>
+          {/* Top dark section */}
+          <View style={styles.minicontainer}>
+            <Text style={styles.locationLabel}>Location</Text>
+            <CustomDropdown
+              options={options}
+              placeholder="Select a location"
+              onSelect={(value) => setLocation(value)}
             />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
+            <View style={styles.searchrow}>
+              <TextInput
+                placeholder="Search coffee"
+                returnKeyType="search"
+                style={styles.formstyle}
+                placeholderTextColor="#948b8b"
               />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+              <View style={styles.filter}>
+                <AntDesign name="control" size={20} color="white" />
+              </View>
+            </View>
+          </View>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+          {/* White section with promo banner and categories */}
+          <View style={styles.maincontainer}>
+            <ImageBackground
+              source={modalImage}
+              resizeMode="cover"
+              style={styles.promobanner}
+            >
+              <View style={styles.modal}>
+                <Text style={styles.promotext}>Promo</Text>
+                <Text style={styles.buytext}>Buy one get one FREE</Text>
+              </View>
+            </ImageBackground>
+
+            <View style={styles.selectcoffee}>
+              {categories.map((item) => (
+                <TouchableOpacity
+                  key={item}
+                  style={[
+                    styles.categoryItem,
+                    selected === item && styles.activeItem,
+                  ]}
+                  onPress={() => setSelected(item)}
+                >
+                  <Text
+                    style={[
+                      styles.categoryText,
+                      selected === item && styles.activeText,
+                    ]}
+                  >
+                    {item}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
+        </>
+      }
+      renderItem={({ item }) => (
+        // <View style={{ flex: 1, flexDirection: "column" }}>
+        <View style={styles.card}>
+          <Image source={item.image} style={styles.cardimage} />
+          <View style={styles.cardinfo}>
+            <Text style={styles.cardname}>{item.name}</Text>
+            <Text style={styles.carddesc}>{item.description}</Text>
+            <Text style={styles.cardprice}>{item.price}</Text>
+          </View>
+          {/* </View> */}
+        </View>
+      )}
+    />
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  listContent: {
+    paddingBottom: 30,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  minicontainer: {
+    paddingTop: 20,
+    paddingBottom: 80,
+    paddingHorizontal: 20,
+    backgroundColor: "#242424",
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  locationLabel: {
+    color: "#948b8b",
+    fontSize: 15,
+    fontWeight: "600",
+    paddingVertical: 5,
+  },
+  searchrow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 20,
+  },
+  formstyle: {
+    borderWidth: 1,
+    borderColor: "#2A2A2A",
+    backgroundColor: "#2A2A2A",
+    borderRadius: 10,
+    padding: 15,
+    width: "85%",
+    color: "white",
+    fontSize: 18,
+  },
+  filter: {
+    backgroundColor: "#9E633E",
+    padding: 15,
+    borderRadius: 10,
+  },
+  maincontainer: {
+    backgroundColor: "white",
+    paddingHorizontal: 20,
+    paddingBottom: 20,
+  },
+  promobanner: {
+    height: 150,
+    borderRadius: 10,
+    padding: 15,
+    marginTop: -60,
+    overflow: "hidden",
+  },
+  modal: {
+    width: "90%",
+    flex: 1,
+    alignItems: "flex-start",
+  },
+  promotext: {
+    backgroundColor: "red",
+    color: "white",
+    padding: 5,
+    borderRadius: 8,
+    fontWeight: "700",
+  },
+  buytext: {
+    color: "white",
+    fontSize: 32,
+    fontWeight: "800",
+  },
+  selectcoffee: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    paddingVertical: 20,
+    flexWrap: "wrap",
+  },
+  categoryItem: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    backgroundColor: "#f0f0f0",
+  },
+  activeItem: {
+    backgroundColor: "#9E633E",
+  },
+  categoryText: {
+    color: "#666",
+    fontSize: 14,
+  },
+  activeText: {
+    color: "#fff",
+    fontWeight: "600",
+  },
+  card: {
+    marginHorizontal: 20,
+    marginBottom: 15,
+    backgroundColor: "#f0f0f0",
+    borderRadius: 10,
+    padding: 10,
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 5,
+    flex: 1,
+  },
+  cardimage: {
+    width: 100,
+    height: 100,
+    borderRadius: 8,
+  },
+  cardinfo: {
+    flex: 1,
+    gap: 4,
+  },
+  cardname: {
+    color: "black",
+    fontSize: 16,
+    fontWeight: "600",
+    textTransform: "capitalize",
+  },
+  carddesc: {
+    color: "gray",
+    fontSize: 14,
+  },
+  cardprice: {
+    color: "black",
+    fontWeight: "800",
+    fontSize: 16,
   },
 });

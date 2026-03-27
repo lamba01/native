@@ -1,9 +1,9 @@
 import { Text, View } from "react-native";
 
-export default function modal() {
+export default function notification() {
   return (
     <View>
-      <Text>This is a modal!</Text>
+      <Text>notification page</Text>
     </View>
   );
 }
