@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    gap: 20,
+    // gap: 20,
     // padding: 20,
   },
   imagecontainer: {
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     textTransform: "capitalize",
-    marginTop: -60,
+    marginTop: -30,
   },
   paragraph: {
     color: "#948b8b",
@@ -70,5 +70,6 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 10,
     paddingHorizontal: 25,
+    backgroundColor: "#242424",
   },
 });
